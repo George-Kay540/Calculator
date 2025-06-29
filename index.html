@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Online Calculator</h1>
+    </header>
+    <div class="calculator">
+        <div class="display">
+            <div class="calculation" id="calculation"></div>
+            <div class="result" id="result">0</div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-clear" onclick="clearAll()">C</button>
+            <button class="btn btn-function" onclick="addPercentage()">%</button>
+            <button class="btn btn-function" onclick="deleteLast()">⌫</button>
+            <button class="btn btn-function" onclick="addOperator('÷')">÷</button>
+            
+            <button class="btn btn-number" onclick="addNumber('7')">7</button>
+            <button class="btn btn-number" onclick="addNumber('8')">8</button>
+            <button class="btn btn-number" onclick="addNumber('9')">9</button>
+            <button class="btn btn-operator" onclick="addOperator('×')">×</button>
+            
+            <button class="btn btn-number" onclick="addNumber('4')">4</button>
+            <button class="btn btn-number" onclick="addNumber('5')">5</button>
+            <button class="btn btn-number" onclick="addNumber('6')">6</button>
+            <button class="btn btn-operator" onclick="addOperator('-')">-</button>
+            
+            <button class="btn btn-number" onclick="addNumber('1')">1</button>
+            <button class="btn btn-number" onclick="addNumber('2')">2</button>
+            <button class="btn btn-number" onclick="addNumber('3')">3</button>
+            <button class="btn btn-operator" onclick="addOperator('+')">+</button>
+            
+            <button class="btn btn-function" onclick="toggleSign()">+/-</button>
+            <button class="btn btn-number" onclick="addNumber('0')">0</button>
+            <button class="btn btn-function" onclick="addDecimal()">.</button>
+            <button class="btn btn-equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <footer>
+        <p>
+            <a href="#" onclick="openModal('privacy')">Privacy Policy</a> |
+            <a href="#" onclick="openModal('agreement')">User Agreement</a>
+        </p>
+    </footer>
+
+    <!-- Info about the free calculator website -->
+    <div id="site-info" style="color:#00cccc; text-align:center; margin: 18px 0 0 0; font-size:1em;">
+        <p>
+            Welcome to our free online calculator! This tool is designed for quick, accurate, and private calculations—no data is stored or tracked. Use it for math homework, finance, or everyday calculations, anytime, anywhere.
+        </p>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:#181818; color:#00cccc; max-width:95vw; width:400px; padding:32px 20px; border-radius:16px; box-shadow:0 0 30px #00cccc; position:relative;">
+            <h2 style="color:#00ff00; text-align:center; margin-bottom:16px;">Privacy Policy</h2>
+            <p>Your privacy is important to us. This calculator does not collect, store, or share any personal data. All calculations are performed locally in your browser and are not transmitted to any server. We do not use cookies or tracking technologies. For questions, contact us via the website's contact form.</p>
+            <button onclick="closeModal('privacy')" style="margin-top:18px; background:#00cc66; color:#fff; border:none; border-radius:8px; padding:8px 18px; font-size:1em; cursor:pointer;">Close</button>
+        </div>
+    </div>
+
+    <!-- User Agreement Modal -->
+    <div id="agreement-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:#181818; color:#00cccc; max-width:95vw; width:400px; padding:32px 20px; border-radius:16px; box-shadow:0 0 30px #00cccc; position:relative;">
+            <h2 style="color:#00ff00; text-align:center; margin-bottom:16px;">User Agreement</h2>
+            <p>By using this calculator, you agree to use it for lawful and personal purposes only. The tool is provided "as is" without warranty of any kind. We are not responsible for any errors, losses, or damages resulting from its use. If you do not agree to these terms, please do not use the calculator.</p>
+            <button onclick="closeModal('agreement')" style="margin-top:18px; background:#00cc66; color:#fff; border:none; border-radius:8px; padding:8px 18px; font-size:1em; cursor:pointer;">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

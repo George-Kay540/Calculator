@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a2a2f 0%, #180341 100%);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.calculator {
+    background: rgba(1, 17, 17, 0.836);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+.display {
+    background: #041520;
+    border-radius: 14px;
+    padding: 20px 12px;
+    margin-bottom: 12px;
+    text-align: right;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: inset 0 0 24px rgba(0, 255, 255, 0.1);
+    overflow-x: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+.calculation {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 6px;
+    min-height: 26px;
+    text-shadow: 0 0 10px rgba(0, 204, 204, 0.8);
+    overflow: visible;
+    word-break: break-all;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+.result {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    min-height: 20px;
+    overflow-x: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+.btn {
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: 1;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn:hover:before,
+.btn:active:before {
+    opacity: 1;
+}
+
+.btn-number {
+    background: #2d2d2d;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-number:hover,
+.btn-number:active {
+    background: #3d3d3d;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(0.95);
+}
+
+.btn-operator {
+    background: #13be6e;
+    color: #000000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.btn-operator:hover,
+.btn-operator:active {
+    background: #13be6e;
+    box-shadow: 0 0 25px rgba(0, 204, 102, 0.8);
+    transform: scale(0.95);
+}
+
+.btn-function {
+    background: #13be6e;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-function:hover,
+.btn-function:active {
+    background: #33ff81;
+    box-shadow: 0 0 25px rgba(37, 129, 99, 0.63);
+    transform: scale(0.95);
+}
+
+.btn-clear {
+    background: #ff3366;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-clear:hover,
+.btn-clear:active {
+    background: #ff5588;
+    box-shadow: 0 0 25px rgba(255, 51, 102, 0.8);
+    transform: scale(0.95);
+}
+
+.btn-equals {
+    background: #3a7fe7;
+    color: #000000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.btn-equals:hover,
+.btn-equals:active {
+    background: #00ff88;
+    box-shadow: 0 0 25px rgba(0, 204, 102, 0.8);
+    transform: scale(0.95);
+}
+
+.btn:active {
+    transform: scale(0.92);
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.8); }
+}
+
+header h1 {
+    color: #00ff00;
+    text-align: center;
+    font-size: 2.5em;
+    text-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+footer {
+    color: #00cccc;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #00cccc;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 204, 204, 0.8);
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+footer a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 1);
+}
+
+.result.result-caret::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 3px;
+    height: 36px;
+    background-color: #00ff00;
+    border-radius: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 5px;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+@keyframes blink {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+    .calculator {
+        padding: 12px;
+        max-width: 100vw;
+    }
+    .display {
+        padding: 28px 8px;
+        font-size: 1.1em;
+    }
+    .calculation {
+        font-size: 18px;
+        min-height: 20px;
+    }
+    .result {
+        font-size: 28px;
+        min-height: 28px;
+    }
+    .btn {
+        height: 44px;
+        font-size: 16px;
+    }
+    .buttons {
+        gap: 8px;
+    }
+}
+
+/* Responsive styles for laptops and medium screens */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        padding: 10px;
+    }
+    .calculator {
+        padding: 18px;
+        max-width: 360px;
+    }
+    .display {
+        padding: 14px 8px;
+        margin-bottom: 8px;
+    }
+    .calculation {
+        font-size: 15px;
+        min-height: 20px;
+        margin-bottom: 3px;
+    }
+    .result {
+        font-size: 20px;
+        min-height: 16px;
+    }
+    .btn {
+        height: 45px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    .buttons {
+        gap: 10px;
+    }
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 12px;
+    }
+    footer {
+        margin-top: 12px;
+        font-size: 0.75em;
+    }
+    #site-info {
+        margin: 10px 0 0 0;
+        font-size: 0.85em;
+    }
+} 
