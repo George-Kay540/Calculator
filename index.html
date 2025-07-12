@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Online Calculator</title>
+    <meta name="title" content="Free Online Calculator - Fast & Accurate Math Tool | No Registration Required">
+    <meta name="description" content="Free online calculator for basic math, percentages, and calculations. No registration, no ads, completely private. Calculator.net, Online-calculator.com Perfect for homework, finance, and everyday calculations.">
+    <meta name="keywords" content="online calculator, free calculator, math calculator, percentage calculator, basic calculator, scientific calculator, financial calculator, kalkulator, homework calculator">
+    <meta name="author" content="Online Calculator">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Free Online Calculator - Fast & Accurate Math Tool">
+    <meta property="og:description" content="Free online calculator for basic math, percentages, and calculations. No registration, no ads, completely private.">
+    <meta property="og:image" content="https://yourdomain.com/calculator-preview.jpg">
+    <meta property="og:site_name" content="Online Calculator">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Free Online Calculator - Fast & Accurate Math Tool">
+    <meta property="twitter:description" content="Free online calculator for basic math, percentages, and calculations. No registration, no ads, completely private.">
+    <meta property="twitter:image" content="https://yourdomain.com/calculator-preview.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#00ff00">
+    <meta name="msapplication-TileColor" content="#00ff00">
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon/icons8-calculator-16.png">
+    <link rel="apple-touch-icon" href="favicon/icons8-calculator-16.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data for Calculator -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Online Calculator",
+        "description": "A free online calculator for basic mathematical operations including addition, subtraction, multiplication, division, and percentage calculations.",
+        "url": "https://yourdomain.com/",
+        "applicationCategory": "CalculatorApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Basic arithmetic operations",
+            "Percentage calculations",
+            "Decimal point support",
+            "Clear function",
+            "Backspace function",
+            "Sign toggle",
+            "No registration required",
+            "Privacy-focused"
+        ],
+        "screenshot": "https://yourdomain.com/calculator-screenshot.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Online Calculator"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Online Calculator</h1>
+        <button id="dark-mode-toggle" class="dark-mode-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+            🌙
+        </button>
+    </header>
+    
+    <main>
+        <section class="calculator-section">
+            <div class="calculator">
+                <div class="display">
+                    <div class="calculation" id="calculation"></div>
+                    <div class="result" id="result">0</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-clear" onclick="clearAll()" aria-label="Clear all">C</button>
+                    <button class="btn btn-function" onclick="addPercentage()" aria-label="Calculate percentage">%</button>
+                    <button class="btn btn-function" onclick="deleteLast()" aria-label="Delete last character">⌫</button>
+                    <button class="btn btn-function" onclick="addOperator('÷')" aria-label="Divide">÷</button>
+                    
+                    <button class="btn btn-number" onclick="addNumber('7')" aria-label="Number 7">7</button>
+                    <button class="btn btn-number" onclick="addNumber('8')" aria-label="Number 8">8</button>
+                    <button class="btn btn-number" onclick="addNumber('9')" aria-label="Number 9">9</button>
+                    <button class="btn btn-operator" onclick="addOperator('×')" aria-label="Multiply">×</button>
+                    
+                    <button class="btn btn-number" onclick="addNumber('4')" aria-label="Number 4">4</button>
+                    <button class="btn btn-number" onclick="addNumber('5')" aria-label="Number 5">5</button>
+                    <button class="btn btn-number" onclick="addNumber('6')" aria-label="Number 6">6</button>
+                    <button class="btn btn-operator" onclick="addOperator('-')" aria-label="Subtract">-</button>
+                    
+                    <button class="btn btn-number" onclick="addNumber('1')" aria-label="Number 1">1</button>
+                    <button class="btn btn-number" onclick="addNumber('2')" aria-label="Number 2">2</button>
+                    <button class="btn btn-number" onclick="addNumber('3')" aria-label="Number 3">3</button>
+                    <button class="btn btn-operator" onclick="addOperator('+')" aria-label="Add">+</button>
+                    
+                    <button class="btn btn-function" onclick="toggleSign()" aria-label="Toggle positive/negative">+/-</button>
+                    <button class="btn btn-number" onclick="addNumber('0')" aria-label="Number 0">0</button>
+                    <button class="btn btn-function" onclick="addDecimal()" aria-label="Decimal point">.</button>
+                    <button class="btn btn-equals" onclick="calculate()" aria-label="Calculate result">=</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="merged-info-section">
+            <div class="info-container">
+                <h2>Calculator Features</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>Basic Operations</h3>
+                        <p>Addition, subtraction, multiplication, and division with decimal support</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Percentage Calculator</h3>
+                        <p>Calculate percentages quickly and accurately</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Privacy Focused</h3>
+                        <p>All calculations performed locally - no data stored or transmitted</p>
+                    </div>
+                    <div class="feature">
+                        <h3>No Registration</h3>
+                        <p>Start calculating immediately without any sign-up required</p>
+                    </div>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <h2>How to Use the Calculator</h2>
+                <div class="how-to-grid">
+                    <div class="how-to-item">
+                        <h3>Basic Operations</h3>
+                        <p>Click the number buttons (0-9) to input numbers, then use the operator buttons (+, -, ×, ÷) to perform calculations. Press = to see the result.</p>
+                    </div>
+                    <div class="how-to-item">
+                        <h3>Decimal Numbers</h3>
+                        <p>Use the decimal point (.) button to add decimal places to your numbers for precise calculations.</p>
+                    </div>
+                    <div class="how-to-item">
+                        <h3>Percentage Calculations</h3>
+                        <p>Enter a number and press the % button to convert it to a percentage (divide by 100). For example: 50% = 0.5</p>
+                    </div>
+                    <div class="how-to-item">
+                        <h3>Clear and Delete</h3>
+                        <p>Use C to clear everything, or ⌫ to delete the last character entered. The +/- button toggles between positive and negative numbers.</p>
+                    </div>
+                    <div class="how-to-item">
+                        <h3>Keyboard Support</h3>
+                        <p>You can also use your keyboard: numbers (0-9), operators (+, -, *, /), Enter for =, Escape for C, and Backspace for ⌫.</p>
+                    </div>
+                    <div class="how-to-item">
+                        <h3>Real-time Display</h3>
+                        <p>Your calculation appears in the top display, and the result shows below. The display automatically formats large numbers with commas.</p>
+                    </div>
+                </div>
+                
+                <hr class="section-divider">
+                
+                <div id="site-info">
+                    <h2>About Free Online Calculator</h2>
+                    <p>
+                        This calculator was built as part of a project for learning web developement. It is designed for quick, accurate, and private calculations, and no data is stored or tracked.
+                        Use it for math homework, finance, or everyday calculations, anytime, anywhere. Perfect for students, professionals, and anyone needing 
+                        reliable mathematical computations.
+                    </p>
+                    <h3>Why Choose this Calculator?</h3>
+                    <ul>
+                        <li><strong>Free to Use:</strong> No hidden costs or premium features</li>
+                        <li><strong>Privacy First:</strong> All calculations happen in your browser</li>
+                        <li><strong>No Registration:</strong> Start calculating immediately</li>
+                        <li><strong>Mobile Friendly:</strong> Works perfectly on all devices</li>
+                        <li><strong>Accurate Results:</strong> Reliable mathematical computations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <nav>
+            <a href="#" onclick="openModal('privacy')">Privacy Policy</a> |
+            <a href="#" onclick="openModal('agreement')">User Agreement</a> |
+            <a href="#" onclick="openModal('features')">Features</a>
+        </nav>
+        <p>&copy; 2025 Online Calculator. All rights reserved.</p>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%); color:#495057; max-width:95vw; width:400px; padding:32px 20px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.2); position:relative; border:1px solid rgba(0,0,0,0.1);">
+            <h2 style="color:#495057; text-align:center; margin-bottom:16px; font-weight:600;">Privacy Policy</h2>
+            <p style="color:#6c757d; line-height:1.6;">Your privacy is important to us. This calculator does not collect, store, or share any personal data. All calculations are performed locally in your browser and are not transmitted to any server. We do not use cookies or tracking technologies.</p>
+            <button onclick="closeModal('privacy')" style="margin-top:18px; background:linear-gradient(145deg, #007bff 0%, #0056b3 100%); color:#fff; border:none; border-radius:8px; padding:8px 18px; font-size:1em; cursor:pointer; box-shadow:0 4px 8px rgba(0,123,255,0.3); transition:all 0.2s;">Close</button>
+        </div>
+    </div>
+
+    <!-- User Agreement Modal -->
+    <div id="agreement-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%); color:#495057; max-width:95vw; width:400px; padding:32px 20px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.2); position:relative; border:1px solid rgba(0,0,0,0.1);">
+            <h2 style="color:#495057; text-align:center; margin-bottom:16px; font-weight:600;">User Agreement</h2>
+            <p style="color:#6c757d; line-height:1.6;">By using this calculator, you agree to use it for lawful and personal purposes only. The tool is provided "as is" without warranty of any kind. We are not responsible for any errors, losses, or damages resulting from its use. If you do not agree to these terms, please do not use the calculator.</p>
+            <button onclick="closeModal('agreement')" style="margin-top:18px; background:linear-gradient(145deg, #007bff 0%, #0056b3 100%); color:#fff; border:none; border-radius:8px; padding:8px 18px; font-size:1em; cursor:pointer; box-shadow:0 4px 8px rgba(0,123,255,0.3); transition:all 0.2s;">Close</button>
+        </div>
+    </div>
+
+    <!-- Features Modal -->
+    <div id="features-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%); color:#495057; max-width:95vw; width:450px; padding:32px 20px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.2); position:relative; border:1px solid rgba(0,0,0,0.1);">
+            <h2 style="color:#495057; text-align:center; margin-bottom:16px; font-weight:600;">Calculator Features</h2>
+            <div style="margin-bottom:20px;">
+                <h3 style="color:#495057; margin-bottom:8px; font-weight:600;">Basic Operations</h3>
+                <p style="margin-bottom:12px; color:#6c757d;">Addition (+), subtraction (-), multiplication (×), and division (÷) with full decimal support and automatic comma formatting for large numbers.</p>
+                
+                <h3 style="color:#495057; margin-bottom:8px; font-weight:600;">Percentage Calculations</h3>
+                <p style="margin-bottom:12px; color:#6c757d;">Calculate percentages quickly and accurately. Simply enter a number followed by % to convert it to decimal form.</p>
+                
+                <h3 style="color:#495057; margin-bottom:8px; font-weight:600;">Advanced Functions</h3>
+                <p style="margin-bottom:12px; color:#6c757d;">Clear function (C), backspace (⌫), sign toggle (+/-), and decimal point (.) for complete calculation control.</p>
+                
+                <h3 style="color:#495057; margin-bottom:8px; font-weight:600;">User Experience</h3>
+                <p style="margin-bottom:12px; color:#6c757d;">Real-time calculation display, keyboard support, mobile-responsive design, and privacy-focused operation with no data collection.</p>
+            </div>
+            <button onclick="closeModal('features')" style="margin-top:18px; background:linear-gradient(145deg, #007bff 0%, #0056b3 100%); color:#fff; border:none; border-radius:8px; padding:8px 18px; font-size:1em; cursor:pointer; box-shadow:0 4px 8px rgba(0,123,255,0.3); transition:all 0.2s;">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
